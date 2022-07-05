@@ -66,6 +66,7 @@
                         </li>
 
                         <li><a href="addresses.php"><i class="fa fa-file-invoice-dollar"></i>&nbsp;Addresses</a></li>
+                        <li><a href="referral.php"><i class="fa fa-file-invoice-dollar"></i>&nbsp;Referral</a></li>
                          <li><a href="transactions.php"><i class="fa fa-file-invoice-dollar"></i>&nbsp;Account Transactions</a></li>
                       <!--   <li><a href="#" data-toggle="modal" data-target="#withdrawal-modal"><i class="fa fa-hand-holding-usd"></i> Withdrawal</a></li> -->
                       <li><a href="./edit-profile.php"><span class="icon-s"><i class="fa fa-user"></i>&nbsp;Profile</a></li>

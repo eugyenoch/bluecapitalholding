@@ -5,7 +5,7 @@ include "session.php";
 define('SERVER', 'localhost');
 define('USER', 'root');
 define('PASS', '');
-define('DB', 'boldswap');
+define('DB', 'bluecapital');
 
 $con = new mysqli(SERVER,USER,PASS,DB);
 
@@ -45,5 +45,9 @@ foreach($sql_withdraw_exec as $withdraw_info){extract($withdraw_info);}
 $sql_addresses = "SELECT * FROM `addresses`";
 $sql_addresses_exec = $con->query($sql_addresses);
 foreach($sql_addresses_exec as $addresses_info){extract($addresses_info);}
+
+$sql_profit = "SELECT * FROM `profit`";
+$sql_profit_exec = $con->query($sql_profit);
+foreach($sql_profit_exec as $profit_info){extract($profit_info);}
 }
 ?>

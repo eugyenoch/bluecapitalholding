@@ -17,40 +17,31 @@ $folder_image = "../upload/";
             <div class="card content-area">
                                 <div class="card-innr table-responsive">
                     <div class="card-head">
-                        <h4 class="card-title">Latest Funding Request</h4>
+                        <h4 class="card-title">View Profits Added To Users</h4>
                     </div>
                                 <table class="data-table table table-hover dt-init user-tnx">
                         <thead>
                             <tr class="data-item data-head">
                                 <th class="data-col dt-tnxno">Txn ID</th>
-                                <th class="data-col dt-tnxno">User</th>
+                                 <th class="data-col dt-tnxno">User</th>
                                 <th class="data-col dt-amount">Amount</th>
-                                <th class="data-col dt-account">Status</th>
-                                <th class="data-col dt-type">
-                                    <div class="dt-type-text">Type</div>
+                                <th class="data-col dt-account">Currency</th>
+                              <th class="data-col dt-type">
+                                    <div class="dt-type-text">Status</div>
                                 </th>
-                                <th class="data-col dt-type">
-                                    <div class="dt-type-text">Proof</div>
-                                </th>
-                                <th class="data-col dt-type">
-                                    <div class="dt-type-text">Comment</div>
-                                </th>
-                                <th class="data-col data-actions">
+                               <!-- <th class="data-col data-actions">
                                     <div class="dt-type-text">Edit</div>
-                                </th>
+                                </th> -->
                                 <th class="data-col data-actions">
-                                    <div class="dt-type-text">Approve</div>
-                                </th>
-                                <th class="data-col data-actions">
-                                    <div class="dt-type-text">Delete</a></div>
+                                    <div class="dt-type-text">Action</a></div>
                                 </th>
                             </tr>
                         </thead>
                         <tbody>
                             <?php
-                           $sql_fund_select = "SELECT * FROM `fund`";
-                            $sql_fund_select_exec = $con->query($sql_fund_select);
-                            foreach($sql_fund_select_exec as $fundInfo){extract($fundInfo);?>
+                           $sql_profit_select = "SELECT * FROM `profit`";
+                            $sql_profit_select_exec = $con->query($sql_profit_select);
+                            foreach($sql_profit_select_exec as $profitInfo){extract($profitInfo);?>
 
                                                         <tr class="data-item">
                                 <td class="data-col dt-tnxno">
@@ -59,48 +50,34 @@ $folder_image = "../upload/";
                                             <span class="d-none">waiting</span>
                                         </div> -->
                                             <div class="fake-class">
-                                        <span class="lead tnx-id"><?php if(isset($ftxn) && $ftxn!==null){echo $ftxn;}?></span>
-                                            <span class="sub sub-date"><?php if(isset($request_date) && $request_date!==null){echo $request_date;}?></span>
+                                        <span class="lead tnx-id"><?php if(isset($ptxn) && $ptxn!==null){echo $ptxn;}?></span>
+                                            <span class="sub sub-date"><?php if(isset($date_approved) && $date_approved!==null){echo $date_approved;}?></span>
                                         </div>
                                     </div>
                                 </td>
-                                 <td class="data-col dt-token">
-                                    <span class="lead token-amount"><?php if(isset($fundInfo['user_email']) && $fundInfo['user_email']!==null){echo $fundInfo['user_email'];}?></span>
+                                <td class="data-col dt-token">
+                                    <span class="lead token-amount"><?php if(isset($profitInfo['user_email']) && $profitInfo['user_email']!==null){echo $profitInfo['user_email'];}?></span>
                                 </td>
                                 <td class="data-col dt-token">
-                                    <span class="lead token-amount"><?php if(isset($amount) && $amount!==null){echo $amount;}?></span>
-                                    <span class="sub sub-symbol"><?php if(isset($currency) && $currency!==null){echo strtoupper($currency);}?></span>
+                                    <span class="lead token-amount"><?php if(isset($profitInfo['amount']) && $profitInfo['amount']!==null){echo $profitInfo['amount'];}?></span></td>
+                                    <td class="data-col dt-token">
+                                    <span class="sub sub-symbol"><?php if(isset($profitInfo['currency']) && $profitInfo['currency']!==null){echo strtoupper($profitInfo['currency']);}?></span>
                                 </td>
-                                <td class="data-col dt-account" id="td_approve">
-     <?php if(isset($status) && $status!==null){if($status==="pending"){echo "<span class='lead user-info text-danger'>{$status}</span>";}else{echo "<span class='lead user-info text-success'>{$status}</span>";}}?>
-                                                                    </td>
+                               <!--  <td class="data-col dt-account" id="td_approve">
+     <?php //if(isset($status) && $status!==null){if($status==="pending"){echo "<span class='lead user-info text-danger'>{$status}</span>";}else{echo "<span class='lead user-info text-success'>{$status}</span>";}}?>
+                                                                    </td> -->
                                 <td class="data-col dt-type">
-                    <?php if(isset($request_date)&&isset($amount)&&isset($currency)&&isset($status)){echo "<span class='dt-type-md badge badge-outline badge-success badge-md'>Credit</span>";}?>
-                                    <span class="dt-type-sm badge badge-sq badge-outline badge-success badge-md">c</span>
+                    <?php if(isset($date_approved)&&isset($profitInfo['amount'])&&isset($profitInfo['currency'])){echo "<span class='dt-type-md badge badge-outline badge-success badge-md'>Profited</span>";}?>
+                                    <span class="dt-type-sm badge badge-sq badge-outline badge-success badge-md">P</span>
                                                 </td>
-
-                                                 <td class="data-col dt-type">
-                    <?php if(isset($fproof) && $fproof!==null){echo"<img src='../upload/$fproof' alt='proof' title='Proof of payment' width='40px' height='40px'>";}?>
-                                    <span class="dt-type-sm badge badge-sq badge-outline badge-success badge-md">Proof</span>
-                                                </td>
-
-                                                 <td class="data-col dt-type">
-                    <?php if(isset($fcomment) && $fcomment!==null){echo $fcomment;}else{echo"N/A";}?>
-                                    <span class="dt-type-sm badge badge-sq badge-outline badge-success badge-md">Comment</span>
-                                                </td>
-                                                 <td class="data-col dt-type">
+                                                <!--  <td class="data-col dt-type">
                             <a href="edit-amount.php?af=<?=$ftxn;?>" data-toggle="" data-target="" class="dt-type-md"><span class='badge badge-outline badge-info badge-md'>Edit</span></a>
                             <a href="edit-amount.php?af=<?=$ftxn;?>" data-toggle="" data-target="" class="dt-type-sm badge badge-sq badge-outline badge-info badge-md">E</a>
-                        </td>
+                        </td> -->
 
                         <td class="data-col dt-type">
-                            <a href="user.php?afr=<?= $ftxn; ?>" class="dt-type-md"><span class='badge badge-outline badge-info badge-md'>Approve</span></a>
-                            <a href="user.php?afr=<?= $ftxn; ?>" class="dt-type-sm badge badge-sq badge-outline badge-info badge-md">A</a>
-                        </td>
-
-                        <td class="data-col dt-type">
-                            <a name="delete" href="user.php?dfr=<?= $ftxn; ?>" class="dt-type-md"><span class='badge badge-outline badge-primary badge-md'>Delete</span></a>
-                            <a href="user.php?dfr=<?= $ftxn; ?>" class="dt-type-sm badge badge-sq badge-outline badge-primary badge-md">Del</a>
+                            <a name="delete" href="user.php?dpa=<?= $ptxn; ?>" class="dt-type-md"><span class='badge badge-outline badge-primary badge-md'>Delete</span></a>
+                            <a href="user.php?dpa=<?= $ptxn; ?>" class="dt-type-sm badge badge-sq badge-outline badge-primary badge-md">Del</a>
                         </td>
                             </tr>
                         <?php }?>

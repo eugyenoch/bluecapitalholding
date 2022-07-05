@@ -130,6 +130,17 @@ if(isset($_GET['dwa']) && $_GET['dwa']!==null){
 	else{header('Location:addresses.php');}
    }
 ?>
+
+
+<?php 
+
+   if(isset($_GET['dpa']) && $_GET['dpa']!==null){
+    $ptxn = $_GET['dpa'];
+    echo"<script>window.alert('Click the OK button to permanently delete this profit transaction')</script>";
+    $profit_request_delete ="DELETE FROM profit WHERE ptxn='$ptxn'";
+    if($con->query($profit_request_delete)){echo "<script>location.href='view-profits.php'</script>";}else{header('Location:view-profits.php');}
+   }
+   ?>
                 </div>
                   <!-- 
             </div>

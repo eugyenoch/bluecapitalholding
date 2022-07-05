@@ -40,7 +40,10 @@ include('../cookie.php');
                                     <div class="dt-type-text">Photo</div>
                                 </th>
                                 <th class="data-col dt-type">
-                                    <div class="dt-type-text">Action</div>
+                                    <div class="dt-type-text">Add Profit</div>
+                                </th>
+                                <th class="data-col dt-type">
+                                    <div class="dt-type-text">Delete</div>
                                 </th>
                             </tr>
                         </thead>
@@ -92,6 +95,11 @@ include('../cookie.php');
      <span class="lead user-info text-warning"><?php if(isset($phone) && $phone!==null){echo $phone;}?></span></td>
       <td class="data-col dt-account" id="td_approve">
      <span class="lead user-info text-warning"><?php if(isset($photo) && $photo!==null){echo "<img src='../upload/{$photo}' width='40px' height='40px'>";}?></span> </td>
+
+      <td class="data-col dt-type">
+                            <a href="add-profit.php?ap=<?=$user_email;?>" data-toggle="" data-target="" class="dt-type-md"><span class='badge badge-outline badge-info badge-md'>Add Profit</span></a>
+                            <a href="add-profit.php?ap=<?=$user_email;?>" data-toggle="" data-target="" class="dt-type-sm badge badge-sq badge-outline badge-info badge-md">Add</a>
+                        </td>
 
                                <td class="data-col dt-token" id="td_approve">
      <a href="user.php?vu=<?= $id_no; ?>"><button class="btn btn-danger">Delete</button></a> 

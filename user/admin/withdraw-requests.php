@@ -21,6 +21,7 @@ include('../cookie.php');
                         <thead>
                             <tr class="data-item data-head">
                                 <th class="data-col dt-tnxno">Txn ID</th>
+                                <th class="data-col dt-tnxno">User</th>
                                 <th class="data-col dt-amount">Amount</th>
                                 <th class="data-col dt-account">Status</th>
                                 <th class="data-col dt-type">
@@ -47,6 +48,9 @@ include('../cookie.php');
                                             <span class="sub sub-date"><?php if(isset($withdraw_request_date) && $withdraw_request_date!==null){echo $withdraw_request_date;}?></span>
                                         </div>
                                     </div>
+                                </td>
+                                 <td class="data-col dt-token">
+                                    <span class="lead token-amount"><?php if(isset($withdrawInfo['user_email']) && $withdrawInfo['user_email']!==null){echo $withdrawInfo['user_email'];}?></span>
                                 </td>
                                 <td class="data-col dt-token">
                                     <span class="lead token-amount"><?php if(isset($wamount) && $wamount!==null){echo $wamount;}?></span>

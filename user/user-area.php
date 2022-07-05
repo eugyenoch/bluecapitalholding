@@ -5,10 +5,19 @@ include('function.php');
 include('cookie.php');
 //$sessEmail = $_SESSION['email'];
 
-
 $sql_active_transact = "SELECT * FROM `transact` WHERE `user_email`='$session_email' AND `status`='approved'";
 $sql_active_exec = $con->query($sql_active_transact);
 $sql_count_active_exec = mysqli_num_rows($sql_active_exec);
+
+#SQL Count fund
+$sql_factive_transact = "SELECT * FROM `fund` WHERE `user_email`='$session_email' AND `status`='approved'";
+$sql_factive_exec = $con->query($sql_factive_transact);
+$sql_count_factive_exec = mysqli_num_rows($sql_factive_exec);
+
+
+$sql_profit_transact = "SELECT * FROM `profit` WHERE `user_email`='$session_email'";
+$sql_profit_exec = $con->query($sql_profit_transact);
+$sql_count_profit_exec = mysqli_num_rows($sql_profit_exec);
 
 if(!isset($_SESSION['email'])){header('Location:login.php');}
 ?>
@@ -22,8 +31,8 @@ if(!isset($_SESSION['email'])){header('Location:login.php');}
 <div class="container">
     <div class="row">
 <div class="col-lg-12 col-12">
-<div class="token-information card card-full-height" style="border-radius: 20px;">
-<div class="token-info">
+<!-- <div class="token-information card card-full-height" style="border-radius: 20px;">
+<div class="token-info"> -->
 <!-- <h1 class="token-info-head text-light">Select Trading Plan</h1>
 <div class="gaps-2x"></div>
 <h5 class="token-info-sub"> <a href="#starter-pack" data-toggle="modal" data-target="#starter-pack" class="btn btn-sm btn-outline btn-light">
@@ -41,29 +50,37 @@ if(!isset($_SESSION['email'])){header('Location:login.php');}
                                 <span>Gold Plus</span>
                             </a>
                         </h5> -->
-</div>
-</div>
+<!-- </div>
+</div> -->
 </div>
 </div>
 
 <div class="row">
-<div class="col-lg-6 col-6">
+<div class="col-lg-6 col-6 col-sm-12">
 <div class="token-information card card-full-height" style="border-radius: 20px;">
 <div class="token-info">
-<h1 class="token-info-head text-light">Total Trades</h1>
+<h1 class="token-info-head text-light">Total Profit</h1>
 <div class="gaps-2x"></div>
-<h5 class="token-info-sub"><?php if(isset($sql_count_row_transact) && $sql_count_row_transact!==null){
-    echo $sql_count_row_transact;}?></h5>
+<h5 class="token-info-sub"><?php if(isset($profit_info['amount']) && isset($profit_info['currency']) && $profit_info['amount']!==null && $profit_info['currency']!==null){
+    echo $profit_info['amount'] ." ".$profit_info['currency'];}?></h5>
 </div>
 </div>
 <!-- .card -->
 </div><!-- .col -->
-<div class="col-lg-6 col-6">
+<div class="col-lg-6 col-6 col-sm-12">
 <div class="token-information card card-full-height" style="border-radius:20px;">
 <div class="token-info">
-<h1 class="token-info-head text-light">Active Trades</h1>
+<h1 class="token-info-head text-light">Total Withdrawal</h1>
 <div class="gaps-2x"></div>
-<h5 class="token-info-sub"><?php if(isset($sql_count_active_exec) && $sql_count_active_exec!==null){echo $sql_count_active_exec;}?></h5>
+<h5 class="token-info-sub"><?php $sql_withdrawals = "SELECT wamount AS swd FROM `withdraw` WHERE `user_email`='$session_email' AND `wstatus`='approved'";
+$sql_withdrawals_exec = $con->query($sql_withdrawals);
+$sql_withdrawals_assoc = mysqli_fetch_assoc($sql_withdrawals_exec);
+if($sql_withdrawals_assoc){
+    $withdrawn_row = $sql_withdrawals_assoc['swd'];
+     if(isset($withdraw_info['wamount'])&& $withdraw_info['wamount']!==null){
+                  echo $withdrawn_row;
+                }else{echo "cannot fetch";}}?>
+</h5>
 </div>
 </div>
 <!-- .card -->
@@ -73,7 +90,7 @@ if(!isset($_SESSION['email'])){header('Location:login.php');}
 <div class="token-info">
 <h1 class="token-info-head text-light">Completed Trades</h1>
 <div class="gaps-2x"></div>
-<h5 class="token-info-sub"><?php if(isset($sql_count_active_exec) && $sql_count_active_exec!==null){echo $sql_count_active_exec;}?></h5>
+<h5 class="token-info-sub"><?php if(isset($sql_count_factive_exec) && $sql_count_factive_exec > 0){echo $sql_count_factive_exec;}?></h5>
 </div>
 </div>
 <!-- .card -->
@@ -96,11 +113,17 @@ if(!isset($_SESSION['email'])){header('Location:login.php');}
 </li>
 
 <li class="token-balance-sub col-md-12 col-lg-6 mb-3">
-    <?php if(isset($fund_info['amount']) && isset($fund_info['currency'])){
-    echo "<span>Latest Requested Deposit: ".$fund_info['amount']." ".$fund_info['currency']. "</span><br>";}
+    <?php 
 
-    echo "<big><strong>Fund Totals</strong></big><br>";
-    $r_deposit = "SELECT sum(amount) AS rsum,currency AS cur FROM fund WHERE user_email ='$session_email' AND status = 'pending'";
+    $disp_bal = "SELECT sum(amount) AS psum,currency AS cur FROM fund WHERE user_email ='$session_email' AND status='pending'";
+    $display_pending_balance = $con->query($disp_bal);
+    $display_pending_balance2 = mysqli_fetch_assoc($display_pending_balance);
+    if($display_pending_balance2){echo $display_pending_balance2['cur'] . ' '.$display_pending_balance2['psum'];}
+    // if(isset($fund_info['amount']) && isset($fund_info['currency']) && $fund_info['status']=='pending'){
+    // echo "<span>Latest Requested Deposit: ".$fund_info['amount']." ".$fund_info['currency']. "</span><br>";}else{echo "No requested deposits yet<br>";}
+
+    echo "<br><big><strong>Fund Totals</strong></big><br>";
+    $r_deposit = "SELECT sum(amount) AS rsum,currency AS cur FROM fund WHERE user_email ='$session_email' AND status = 'approved'";
     $r_depo_2 = $con->query($r_deposit);
     $r_depo_3 = mysqli_fetch_assoc($r_depo_2);
     if($r_depo_3){if($fund_info['currency']==="BTC"){echo $r_depo_3['cur'] . ' '.$r_depo_3['rsum'] .' <br>';}}
@@ -128,7 +151,7 @@ if(!isset($_SESSION['email'])){header('Location:login.php');}
     
    if($total_deposit_display){
     $sum_of_rows = $total_deposit_display['totalsum'];
-    echo "<br><a class='btn btn-lg btn-outline-warning' href='user-transactions.php'>View All Deposits</a><br>";
+    echo "<br><a class='btn btn-lg btn-outline-warning' href='user-transactions.php'>Transaction History</a><br>";
    // echo "<span>Approved deposits: ". $sum_of_rows. " </span><br>";
     if(isset($withdraw_info['wstatus']) && $withdraw_info['wstatus']==="approved"){
    //foreach($total_deposit_display as $total){extract($total)?>
