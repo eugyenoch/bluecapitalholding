@@ -32,7 +32,7 @@ if(in_array($file_ext,$extensions)=== false){
          $sql_insert_fproof = "UPDATE `fund` SET `fproof`='$file_name',`fcomment`='$fcomment' WHERE `ftxn`='$ftxn' ";
          if($con->query($sql_insert_fproof)){
          $toast = "success";
-         header('Refresh:1');
+         header('Refresh:1,url=user-area.php');
       }else{$toast = "fail";}
     }
 }

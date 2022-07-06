@@ -29,14 +29,14 @@
     <script src="https://kit.fontawesome.com/b1e2cc998d.js" crossorigin="anonymous"></script>
     <style type="text/css">
         .card-token{background-color:#5867dd !important; 
-            background-image:linear-gradient(45deg,#581845 80%, #FFAB00 20%) !important;}
+            background-image:linear-gradient(60deg,#17203A 60%, #203D85 40%) !important;}
         .topbar,.topbar-wrap,.is-sticky,.topbar.is-sticky{background-color:#FFAB00 !important; 
-            background-image:linear-gradient(45deg,#581845 80%, #FFAB00 20%) !important;
+            background-image:linear-gradient(60deg,#17203A 60%, #203D85 40%) !important;
             color:#fff !important;}
             /*.token-info-sub,.card-title{color:#FFAB00 !important; }*/
           /*.toggle-tigger.user-thumb{background-color: transparent !important;}
 */
-           .navbar-menu > li > a{color:#FFAB00 !important;}
+           .navbar-menu > li > a{color:#203D85 !important;}
             .simplebar-scroll-content {margin-bottom: 0px !important;}
         .chat-contacts-title{padding-left: 10px;}
         a.drop-toggle::after{content:none !important;}
@@ -110,7 +110,7 @@
 }
 li > a:hover, .orange{color: #FFAB00 !important;}
     .bgOrange{background:linear-gradient(to right,#FFAB00,orange,white) !important;}
-    hr{color:#FFAB00;}
+    hr{color:#203D85;}
 .cursive{font-family:cursive !important;}
     </style>
 </head>
