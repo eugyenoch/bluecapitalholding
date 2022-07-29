@@ -24,10 +24,10 @@ $USER = getUser($_SESSION['email'], $con);
 // REMEMBER TO CHANGE THE URL VARIABLE
 
 // Local
-$DOMAIN = "http://localhost/dave";
+//$DOMAIN = "http://localhost/dave";
 
 // Online
-// $DOMAIN = "https://Bluecapital Holding.org";
+$DOMAIN = "https://bluecapitalholding.com";
 $REF_CODE = generateReferralCode($USER['id_no']);
 
 
@@ -206,7 +206,7 @@ if($sql_withdrawals_assoc){
                                     <ul class="token-balance-list row">
                                         <div class="col-sm-12 col-md-6">
                                             <div class="mt-4 input-group">
-                                                <input type="text" data-ref-input class="form-control" readonly value="<?= "$DOMAIN/bluecapitalholding/user/register.php?ref=" . $REF_CODE ?>">
+                                                <input type="text" data-ref-input class="form-control" readonly value="<?= "$DOMAIN/user/register.php?ref=" . $REF_CODE ?>">
                                                 <button data-copy class="btn btn-sm btn-secondary px-1">Copy Link</button>
                                             </div>
                                             <div class="badge badge-success mt-2" data-ref-message hidden>Link Copied</div>

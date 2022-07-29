@@ -1,203 +1,116 @@
-<!-- Start Header Area -->
-<header class="header-area">
-<!-- Start Top Header -->
-<div class="top-header">
-<div class="container">
-<div class="row align-items-center">
-<div class="col-lg-8 col-md-10">
-	<ul class="header-left-content">
-		<li>
-			<i class="bx bx-home"></i>
-			42 Cambridge Grove, London, England, W6 0LA 
-		</li>
-		<li>
-			<!-- <i class="bx bx-phone-call"></i>
-			<a href="tel:"></a> -->
-		</li>
-		<li>
-			<i class="bx bx-envelope"></i>
-			<a href="mailto:support@bluecapitalholding.com">support@bluecapitalholding.com</a>
-		</li>
-	</ul>
-</div>
+<!DOCTYPE html>
+<html lang="en-US" class="js">
 
-<div class="col-lg-4 col-md-2">
-	<div class="header-right-content">
-		<ul class="flag-area">
-			<!-- <li class="flag-item-top">
-				<a href="#" class="flag-bar">
-					<img src="assets/img/flag/usa.png" alt="Image">
-					<span>USA</span>
-				</a>
+<head>
+    <meta charset="utf-8">
+    <meta name="author" content="Bluecapital Holding">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Bluecapital Holding- Trusted Trade Partner">
+    <meta name="keywords" content="Escrow, Bluecapital Holding,p2p" />
 
-				<ul class="flag-item-bottom">
-					<li class="flag-item">
-						<a href="#0" class="flag-link">
-							<img src="assets/img/flag/canada.png" alt="Image">
-							Canada 
-						</a>
-					</li>
-					<li class="flag-item">
-						<a href="#0" class="flag-link">
-							<img src="assets/img/flag/australia.png" alt="Image">
-							Australia
-						</a>
-					</li> -->
-					<!-- <li class="flag-item">
-						<a href="#" class="flag-link">
-							<img src="assets/img/flag/germany.png" alt="Image">
-							Germany
-						</a>
-					</li>
-					<li class="flag-item">
-						<a href="#" class="flag-link">
-							<img src="assets/img/flag/argentina.png" alt="Image">
-							Argentina
-						</a>
-					</li> -->
-				</ul>
-			</li>
-		</ul>
-	</div>
-</div>
-</div>
-</div>
-</div>
-<!-- Start Top Header -->
+    <!-- Fav Icon -->
+    <link rel="shortcut icon" type="image/x-icon" href="./dist/img/p2pdarkicon.png" />
+    <link rel="icon" type="image/x-icon" href="./dist/img/p2pdarkicon.png" />
 
-<!-- Start Navbar Area -->
-<div class="navbar-area">
-<div class="mobile-nav">
-<div class="container">
-<div class="mobile-menu">
-	<div class="logo">
-		<a href="index.php">
-			<img src="assets/img/BLUE2.png" alt="logo" width="150px" height="90px">
-		</a>
-	</div>
-</div>
-</div>
-</div>
+    <!-- Site Title  -->
+    <title>Dashboard - Bluecapital Holding</title>
 
-<div class="desktop-nav">
-<div class="container">
-<nav class="navbar navbar-expand-md navbar-light">
-	<a class="navbar-brand" href="index.php">
-		<img src="assets/img/BLUE2.png" alt="logo" width="150px" height="90px">
-	</a>
+    <!-- STYLESHEETS -->
+    <link rel="stylesheet" href="assets/css/custom.css">
+    <link rel="stylesheet" href="assets/css/vendor.bundle49f7.css">
+    <link rel="stylesheet" href="assets/css/style.css" id="layoutstyle">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- <link rel="stylesheet" type="text/css" href="./dist/bootstrap/css/bootstrap.min.css"> -->
+    <!--Toastr-->
+<link rel="stylesheet" type="text/css" href="dist/css/toastr.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
-	<div class="collapse navbar-collapse mean-menu">
-		<ul class="navbar-nav m-auto">
-			<li class="nav-item">
-				<a href="index.php" class="nav-link active">
-					Home
-					<!-- <i class="bx bx-chevron-down"></i> -->
-				</a></li>
+    <!-- font awesome -->
+    <script src="https://kit.fontawesome.com/b1e2cc998d.js" crossorigin="anonymous"></script>
+    <style type="text/css">
+        .card-token{background-color:#5867dd !important; 
+            background-image:linear-gradient(60deg,#17203A 60%, #203D85 40%) !important;}
+        .topbar,.topbar-wrap,.is-sticky,.topbar.is-sticky{background-color:#FFAB00 !important; 
+            background-image:linear-gradient(60deg,#17203A 60%, #203D85 40%) !important;
+            color:#fff !important;}
+            /*.token-info-sub,.card-title{color:#FFAB00 !important; }*/
+          /*.toggle-tigger.user-thumb{background-color: transparent !important;}
+*/
+           .navbar-menu > li > a{color:#203D85 !important;}
+            .simplebar-scroll-content {margin-bottom: 0px !important;}
+        .chat-contacts-title{padding-left: 10px;}
+        a.drop-toggle::after{content:none !important;}
+        .p2pBtn{background-color:#FFAB00 !important; border:1px solid #5867dd !important; color:#fff !important;}
+        .p2pText{color:#FFAB00 !important;}
+        .p2pBorder{border:1px solid #FFAB00 !important;}
+       .dataTables_info{display: none !important;}
 
-			<li class="nav-item">
-				<a href="#" class="nav-link">
-					Docs
-					<i class="bx bx-chevron-down"></i>
-				</a>
+       /*Tooltip on view-addresses page*/
+           .tooltip {
+      position: relative;
+      display: inline-block;
+    }
 
-				<ul class="dropdown-menu">
-					<li class="nav-item">
-						<a href="docs/about.php" class="nav-link">About Us</a>
-					</li>
-					<li class="nav-item">
-						<a href="https://bluecapitalholding.com/#faq" class="nav-link">FAQ</a>
-					</li>
-					<li class="nav-item">
-						<a href="docs/cookie-policy.php" class="nav-link">Cookie Policy</a>
-					</li>
-					<li class="nav-item">
-						<a href="docs/privacy-policy.php" class="nav-link">Privacy Policy</a>
-					</li>
-					<li class="nav-item">
-						<a href="docs/terms-of-use.php" class="nav-link">Terms & Conditions</a>
-					</li>
-				</ul>
-			</li>
+    .tooltip .tooltiptext {
+      visibility: hidden;
+      width: 140px;
+      background-color: #555;
+      color: #fff;
+      text-align: center;
+      border-radius: 6px;
+      padding: 5px;
+      position: absolute;
+      z-index: 1;
+      bottom: 150%;
+      left: 50%;
+      margin-left: -75px;
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
 
-			<li class="nav-item">
-				<a href="#" class="nav-link">
-					Investment
-					<i class="bx bx-chevron-down"></i>
-				</a>
+    .tooltip .tooltiptext::after {
+      content: "";
+      position: absolute;
+      top: 100%;
+      left: 50%;
+      margin-left: -5px;
+      border-width: 5px;
+      border-style: solid;
+      border-color: #555 transparent transparent transparent;
+    }
 
-				<ul class="dropdown-menu">
-					<li class="nav-item">
-						<a href="real-estate.php" class="nav-link">Real Estate</a>
-					</li>
-					<li class="nav-item">
-						<a href="forex.php" class="nav-link">Forex</a>
-					</li>
-					<li class="nav-item">
-						<a href="crypto.php" class="nav-link">Crypto</a>
-					</li>
-					<li class="nav-item">
-						<a href="stocks.php" class="nav-link">Stocks</a>
-					</li>
-					<li class="nav-item">
-						<a href="retirement.php" class="nav-link">Retirement</a>
-					</li>
-					<li class="nav-item">
-						<a href="https://opensea.io/" class="nav-link">NFT's</a>
-					</li>
-				</ul>
-			</li>
+    .tooltip:hover .tooltiptext {
+      visibility: visible;
+      opacity: 1;
+    }
 
-			<li class="nav-item">
-				<a href="jackpot.php" class="nav-link">
-					Jackpot
-					<!-- <i class="bx bx-chevron-down"></i> -->
-				</a>
-			</li>
+    .logoTxt{font-weight:900; font-family:tahoma,poppins,open-sans; 
+        font-size:24px; color:#fff;}
 
-			<li class="nav-item">
-				<a href="analysis.php" class="nav-link">Market</a>
-			</li>
-			<li class="nav-item">
-				<a href="children.php" class="nav-link">Children Account</a>
-			</li>
-		</ul>
-		
-		<div class="others-option">
-			<div class="get-quote">
-				<a href="user/login.php" class="default-btn">
-					<span>Login/Signup</span>
-				</a>
-			</div>
-		</div>
-	</div>
-</nav>
-</div>
-</div>
+    .logoHr{width:50%; border:1px solid #fff !important; position:relative; margin-top: 0; padding-top: 0;}
+ @media screen and (min-width:601px){
+.showTb{display: none;}
+}
+    @media screen and (max-width: 600px){
 
-<div class="others-option-for-responsive">
-<div class="container">
-<div class="dot-menu">
-	<div class="inner">
-		<div class="circle circle-one"></div>
-		<div class="circle circle-two"></div>
-		<div class="circle circle-three"></div>
-	</div>
-</div>
+  tr,td,th,.btnTarget{
+    width:100% !important;
+    float:left !important;
+  }
 
-<div class="container">
-	<div class="option-inner">
-		<div class="others-option justify-content-center d-flex align-items-center">
-			<div class="get-quote">
-				<a href="user/login.php" class="default-btn">
-					<span>Login/Signup</span>
-				</a>
-			</div>
-		</div>
-	</div>
-</div>
-</div>
-</div>
-</div>
-<!-- End Navbar Area -->
-</header>
-<!-- End Header Area -->
+  .hideTb{display: none !important;}
+  /*.showTb{display: grid !important; grid-template-columns: auto auto !important;}*/
+
+  .myrow{width: 100% !important;}
+  .mycolumn{width: 50% !important; float: left !important;}
+
+  .intermediate{font-family: tahoma; font-weight:400;}
+  .intermediate:nth-child(odd){background-color: lightgrey;}
+
+}
+li > a:hover, .orange{color: #FFAB00 !important;}
+    .bgOrange{background:linear-gradient(to right,#FFAB00,orange,white) !important;}
+    hr{color:#203D85;}
+.cursive{font-family:cursive !important;}
+    </style>
+</head>
